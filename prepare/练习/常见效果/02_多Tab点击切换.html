@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>02_多Tab点击切换</title>
-  <script src="jquery-1.10.1.js"></script>
   <style>
     * {
       margin: 0;
@@ -64,9 +63,32 @@
     50元包月详情：<br/>&nbsp;每月无限量随心打
   </div>
 </div>
-
+<script src="jquery-1.10.1.js"></script>
 <script>
-  
+  //方法1
+  /*$(function () {
+    $("#tab>li").click(function () {
+      //此节点在兄弟节点的索引
+      var checkIndex = $(this).index();
+      //隐藏所有的
+      $("#container>div").css("display","none");
+      //放开点击此时的div
+      $("#container>div")[checkIndex].style.display = 'block';
+    });
+  });*/
+
+  //方法2
+  $(function () {
+    var index = 0;
+    var $container = $("#container>div");
+    $("#tab>li").click(function () {
+      //此节点在兄弟节点的索引
+      var checkIndex = $(this).index();
+      $container[index].style.display = 'none';
+      $container[checkIndex].style.display = "block";
+      index = checkIndex;
+    });
+  });
 </script>
 </body>
 </html>
