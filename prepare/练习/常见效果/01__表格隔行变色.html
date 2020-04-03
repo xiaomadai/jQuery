@@ -101,7 +101,11 @@
 
 <script src="jquery-1.10.1.js"></script>
 <script>
-
+  $(function () {
+    // $("tbody>tr:odd").addClass("odd");
+    // $("#data>tbody>tr:odd").addClass("odd")
+    $("#data>tbody>tr:odd").attr('class', 'odd')
+  });
 </script>
 </body>
 </html>
