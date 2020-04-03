@@ -60,6 +60,36 @@
     设置 div2 相对于页面的左上角的位置
    */
 
+  $(function () {
+
+    // 1. 点击 btn1
+    // 打印 div1 相对于页面左上角的位置
+    // 打印 div2 相对于页面左上角的位置
+    // 打印 div1 相对于父元素左上角的位置
+    // 打印 div2 相对于父元素左上角的位置
+    $("#btn1").click(function () {
+
+      var offsetLeft1 = $(".div1").offset().left;
+      console.log(offsetLeft1);
+      var offsetLeft2 = $(".div2").offset().left;
+      console.log(offsetLeft2);
+      var positionLeft1 = $(".div1").position().left;
+      console.log(positionLeft1);
+      var positionLeft2 = $(".div2").position().left;
+      console.log(positionLeft2);
+
+    });
+    // 2. 点击 btn2
+    // 设置 div2 相对于页面的左上角的位置
+    $("#btn2").click(function () {
+      $(".div2").offset({
+        left:20,
+        top:20
+      });
+    });
+
+
+  });
 </script>
 </body>
 </html>
