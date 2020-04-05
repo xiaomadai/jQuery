@@ -52,9 +52,9 @@
     // $("ul>li").filter('[title=hello]').css("color","red");
     // 5. ul下li标签中title属性不为hello的
     // $("ul>li:not([title='hello'])").css("color","red");
-    $("ul>li").filter('[title!=hello]').css("color","red");
+    // $("ul>li").filter('[title!=hello]').css("color","red");
     // 6. ul下li标签中有span子标签的
-    // $("ul>li").find('span').css("color","red");
+    $("ul>li").has('span').css("color","red");
   });
 
 
