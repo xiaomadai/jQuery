@@ -86,17 +86,20 @@
   $(function () {
 
     // 1. 向id为ul1的ul下添加一个span(最后)
-
+    // $("#ul1").append("<span>添加的append</span>");
+    // $("<span>添加的appendTo</span>").appendTo("#ul1");
     // 2. 向id为ul1的ul下添加一个span(最前)
-
+    // $("#ul1").prepend("<span>添加的prepend</span>");
+    // $("<span>添加的添加的prependTo</span>").prependTo("#ul1");
     // 3. 在id为ul1的ul下的li(title为hello)的前面添加span
-
+    // $("#ul1>li[title=hello]").before("<span>添加的before</span>");
     // 4. 在id为ul1的ul下的li(title为hello)的后面添加span
-
+    // $("#ul1>li[title=hello]").after("<span>添加的after</span>");
     // 5. 将在id为ul2的ul下的li(title为hello)全部替换为p
-
+    // $("#ul2>li[title=hello]").replaceWith("<p>replaceAll</p>");
     // 6. 移除id为ul2的ul下的所有li
-
+    $("#ul2>li").empty(); //清除内容
+    // $("#ul2>li").remove(); //清除dom元素
   });
 
 </script>
