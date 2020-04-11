@@ -59,9 +59,9 @@
 2. 事件解绑：
   * off(eventName)
 3. 事件的坐标
+  * event.offsetX, event.offsetY 相对于事件元素左上角
   * event.clientX, event.clientY  相对于视口的左上角
   * event.pageX, event.pageY  相对于页面的左上角
-  * event.offsetX, event.offsetY 相对于事件元素左上角
 4. 事件相关处理
   * 停止事件冒泡 : event.stopPropagation()
   * 阻止事件默认行为 : event.preventDefault()
@@ -82,19 +82,73 @@
   $(function () {
 
     // 1. 给.out绑定点击监听(用两种方法绑定)
+    /*$(".out").click(function () {
+      console.log('out click');
+    });*/
+
+    $(".out").on("click",function () {
+      console.log('out click');
+    });
 
     // 2. 给.inner绑定鼠标移入和移出的事件监听(用3种方法绑定)
 
+    /*$(".inner").mousemove(function () {
+      console.log('进入');
+    }).mouseleave(function () {
+      console.log('离开');
+    });*/
+
+    $('.inner').on('mousemove',function () {
+      console.log('进入');
+    }).on('mouseleave',function () {
+      console.log('离开');
+    });
+
+    /*$('.inner').hover(function () {
+      console.log('进入');
+    },function () {
+      console.log('离开');
+    });*/
+
+
     // 3. 点击btn1解除.inner上的所有事件监听
 
-    // 4. 点击btn2解除.inner上的mouseover事件
+    $("#btn1").click(function () {
+      $('.inner').off();
+    });
+
+    // 4. 点击btn2解除.inner上的mouseove事件
+
+    $('#btn2').click(function () {
+      $('.inner').off('mousemove');
+    });
 
     // 5. 点击btn3得到事件坐标
 
+    $('#btn3').click(function (event) {
+      console.log(event.offsetX,event.offsetY);
+      console.log(event.clientX,event.clientY);
+      console.log(event.pageX,event.pageY);
+    });
+
     // 6. 点击.inner区域, 外部点击监听不响应
 
-    // 7. 点击链接, 如果当前时间是偶数不跳转
+    $('.inner').click(function (event) {
+      console.log('click inner');
+      //取消冒泡
+      event.stopPropagation();
+    })  ;
 
+
+    // 7. 点击链接, 如果当前时间是偶数不跳转
+    $('#test4').click(function () {
+      var time = Date.now(event)
+      console.log(time);
+      if(time%2===0){
+        //组织事件的默认行为
+        event.preventDefault();
+      }
+    });
   });
 
 
