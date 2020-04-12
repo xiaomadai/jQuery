@@ -23,12 +23,21 @@
 绑定事件监听的问题: 新加的元素没有监听
 -->
 <script src="js/jquery-1.10.1.js"></script>
-<script>
+<script type="text/javascript">
   /*
    需求：
    1. 点击 li 背景就会变为红色
    2. 点击 btn1 就添加一个 li
   */
+
+  $('ul>li').click(function () {
+    this.style.background = 'red';
+  });
+
+  $('#btn').click(function () {
+    $('ul').append("<li>新添加的li</li>");
+  });
+  
 
 </script>
 </body>

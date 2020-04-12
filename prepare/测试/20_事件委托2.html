@@ -35,7 +35,20 @@
   * 移除事件委托: $(parentSelector).undelegate(eventName)
 -->
 <script src="js/jquery-1.10.1.js"></script>
-<script>
+<script type="text/javascript">
+
+  $('ul').delegate('li','click',function () {
+    this.style.background = 'red';
+  });
+
+  $('#btn1').click(function () {
+    $('ul').append("<li>新添加的li</li>");
+  });
+
+  $('#btn2').click(function () {
+    $('ul').undelegate();
+  });
+
 
 </script>
 </body>
