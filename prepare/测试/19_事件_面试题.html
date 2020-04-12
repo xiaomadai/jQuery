@@ -70,6 +70,25 @@
 <script src="js/jquery-1.10.1.js" type="text/javascript"></script>
 <script type="text/javascript">
 
+	$('.div1').mousemove(function () {
+		console.log('移入div1或者子元素');
+	}).mouseout(function () {
+		console.log('移出div1或者子元素');
+	});
+
+	$('.div3').mouseenter(function () {
+		console.log('移入div3元素');
+	}).mouseleave(function () {
+		console.log('移出div3元素');
+	});
+
+	$('.div3').hover(function () {
+		console.log('移入div33元素');
+		this.style.background = 'red';
+	},function () {
+		console.log('移出div33元素');
+		this.style.background = 'blue';
+	});
 
 
 
